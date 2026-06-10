@@ -24,6 +24,13 @@ const components = {
     // eslint-disable-next-line @next/next/no-img-element
     <img loading="lazy" {...props} alt={props.alt ?? ""} className="rounded-xl" />
   ),
+  // Wide GFM tables would otherwise overflow the viewport on phones; let the
+  // table scroll horizontally inside its own box instead of the whole page.
+  table: (props: React.TableHTMLAttributes<HTMLTableElement>) => (
+    <div className="-mx-4 overflow-x-auto sm:mx-0">
+      <table {...props} className="min-w-full" />
+    </div>
+  ),
   // Shortcodes usable inside MDX:
   AdSlot,
   AffiliateButton,

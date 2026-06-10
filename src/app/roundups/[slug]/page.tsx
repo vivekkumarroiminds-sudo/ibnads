@@ -95,7 +95,7 @@ export default async function RoundupPage({
           <ComparisonTable rows={items} />
         </section>
 
-        <div className="prose prose-lg mx-auto mt-8 max-w-prose dark:prose-invert">
+        <div className="prose mx-auto mt-8 max-w-prose dark:prose-invert sm:prose-lg">
           <MDXContent code={roundup.body} />
         </div>
 

@@ -45,7 +45,7 @@ export default function MethodologyPage() {
       />
       <Container className="py-8">
         <Breadcrumbs trail={trail} />
-        <article className="prose prose-lg mx-auto max-w-prose dark:prose-invert">
+        <article className="prose mx-auto max-w-prose dark:prose-invert sm:prose-lg">
           <h1>{page.title}</h1>
           {page.description && <p className="lead text-muted">{page.description}</p>}
           <MDXContent code={page.body} />

@@ -51,6 +51,15 @@
     scroll-margin-top: 5rem;
   }
 
+  /* rehype-autolink-headings wraps heading text in an <a>. Keep headings
+     looking like headings — inherit color, no underline — while staying
+     clickable for deep-linking. */
+  .prose :is(h1, h2, h3, h4, h5, h6) a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: inherit;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;

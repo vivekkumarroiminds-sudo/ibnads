@@ -141,7 +141,7 @@ export default async function ReviewPage({
               )}
 
               {/* Long-form body */}
-              <div className="prose prose-lg dark:prose-invert">
+              <div className="prose dark:prose-invert sm:prose-lg">
                 <MDXContent code={review.body} />
               </div>
 
