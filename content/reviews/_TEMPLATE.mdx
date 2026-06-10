@@ -1,0 +1,60 @@
+---
+# ── Required (all review types) ───────────────────────────────────────────────
+title: "Full Review Title — Model / Version (Year)"
+excerpt: "One-sentence summary shown in cards, search results, and meta description."
+category: "Headphones" # human-readable; becomes a /categories/<slug> page
+author: "jordan-lee" # must match a file in content/authors
+publishedAt: "2026-01-01"
+updatedAt: "2026-01-15" # optional
+reviewType: "product" # "product" | "software" | "media"
+rating: 4.5 # 0–5, decimals allowed (primary star rating)
+verdict: "The one-paragraph bottom line a skimmer should read."
+
+# ── Optional shared ───────────────────────────────────────────────────────────
+# coverImage: "./images/cover.jpg"   # relative to this file
+featured: false
+draft: true # template stays out of the build
+subScores:
+  - { label: "Sound", score: 4.5 }
+  - { label: "Comfort", score: 4.0 }
+  - { label: "Value", score: 4.0 }
+pros:
+  - "Concrete strength a buyer cares about"
+  - "Another measurable upside"
+cons:
+  - "Honest drawback"
+affiliate:
+  merchant: "Amazon"
+  url: "https://example.com/affiliate-link"
+  price: "$199"
+faq:
+  - question: "Is it worth the price?"
+    answer: "Short, direct answer for the FAQ rich result."
+
+# ── product-only ──────────────────────────────────────────────────────────────
+brand: "Acme"
+specs:
+  - { label: "Weight", value: "250 g" }
+  - { label: "Battery", value: "30 h" }
+
+# ── software-only (set reviewType: software) ─────────────────────────────────
+# pricing: "From $9/mo"
+# platform: ["Web", "macOS", "Windows", "iOS"]
+
+# ── media-only (set reviewType: media) ───────────────────────────────────────
+# mediaKind: "book"            # "book" | "movie" | "game"
+# creator: "Author / Director / Studio"
+# releaseDate: "2025-09-01"
+---
+
+## Overview
+
+Lead with what this is and who it's for.
+
+## How we tested
+
+Reference the [methodology](/methodology) and what was specific to this test.
+
+## The verdict
+
+Restate the bottom line.
