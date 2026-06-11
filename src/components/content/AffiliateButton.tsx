@@ -29,7 +29,9 @@ export function AffiliateButton({
       rel="sponsored nofollow noopener"
       data-affiliate={affiliate.merchant}
       className={cn(
-        "focus-ring inline-flex items-center justify-center gap-2 rounded-xl bg-brand font-semibold text-brand-fg transition hover:opacity-90",
+        // Full-width by default — a 100%-width CTA is the standard, tappable
+        // mobile pattern. Pass a width class to override where inline is wanted.
+        "focus-ring flex w-full items-center justify-center gap-2 rounded-xl bg-brand font-semibold text-brand-fg transition hover:opacity-90",
         sizes[size],
         className
       )}

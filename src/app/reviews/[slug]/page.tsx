@@ -155,12 +155,16 @@ export default async function ReviewPage({
                   </div>
                 </section>
               )}
+            </div>
 
-              {/* Signature summary: GOOD/BAD + teal score panel + bar meters. */}
+            {/* Signature summary breaks out of the reading column so GOOD | BAD |
+                score render as three columns (reference layout). */}
+            <div className="mt-8">
               <ReviewSummary review={review} />
+            </div>
 
+            <div className="mx-auto mt-8 max-w-prose space-y-8">
               <AuthorBio author={author} />
-
               <VoteBar slug={review.slugAsParams} />
             </div>
           </article>
