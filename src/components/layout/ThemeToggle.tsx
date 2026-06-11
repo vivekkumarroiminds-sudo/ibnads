@@ -15,7 +15,7 @@ export function ThemeToggle() {
       type="button"
       aria-label={mounted ? `Switch to ${isDark ? "light" : "dark"} theme` : "Toggle theme"}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-lg text-fg hover:bg-surface"
+      className="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-lg text-brand-fg hover:bg-white/15"
     >
       {/* Render a stable icon until mounted to avoid hydration mismatch. */}
       {mounted && isDark ? <SunIcon /> : <MoonIcon />}

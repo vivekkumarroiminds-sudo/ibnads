@@ -5,17 +5,27 @@
 @layer base {
   :root {
     /* Light theme — HSL channel triplets consumed by tailwind.config.ts.
-       Brand/muted/positive/negative are tuned so text on white meets WCAG AA
-       (≥4.5:1), which also lifts the Lighthouse Accessibility & SEO scores. */
+       Brand/accent/positive/negative are tuned so text/white-on-fill meets
+       WCAG AA (≥4.5:1), which also lifts the Lighthouse Accessibility & SEO
+       scores. The coral brand + teal accent mirror the game-review reference
+       theme, darkened just enough to stay AA-compliant. */
     --bg: 0 0% 100%;
     --surface: 210 20% 98%;
     --fg: 222 47% 11%;
     --muted: 215 18% 42%; /* ~5.7:1 on white */
     --border: 214 20% 90%;
-    --brand: 200 92% 35%; /* ~4.8:1 as text on white AND white text on brand */
+    --brand: 4 76% 47%; /* coral-red — ~5:1 as text on white AND white text on brand */
     --brand-fg: 0 0% 100%;
+    --accent: 174 80% 27%; /* teal — score-panel fill, white text ~5.4:1 */
+    --accent-fg: 0 0% 100%;
     --positive: 142 72% 29%; /* darker so text/icons pass AA on light bg */
     --negative: 0 72% 42%;
+
+    /* Footer is intentionally dark in BOTH themes (matches the reference's
+       near-black footer). Defined once here so it never flips with the theme. */
+    --footer-bg: 222 47% 8%;
+    --footer-fg: 210 20% 92%;
+    --footer-muted: 215 16% 62%;
   }
 
   .dark {
@@ -24,8 +34,10 @@
     --fg: 210 20% 96%;
     --muted: 215 16% 65%;
     --border: 217 25% 20%;
-    --brand: 199 89% 55%;
+    --brand: 4 86% 64%; /* lighter coral so it reads on the dark bg */
     --brand-fg: 222 47% 7%;
+    --accent: 172 66% 50%;
+    --accent-fg: 222 47% 7%;
     --positive: 142 65% 47%;
     --negative: 0 72% 60%;
   }

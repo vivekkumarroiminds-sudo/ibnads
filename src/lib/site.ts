@@ -8,7 +8,7 @@ export const siteConfig = {
   // No trailing slash. Override in production via NEXT_PUBLIC_SITE_URL.
   url: process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://ibnads.com",
   locale: "en_US",
-  themeColor: "#0ea5e9",
+  themeColor: "#d62f28",
   twitter: "@ibnads",
   publisher: "ibnads",
   nav: [

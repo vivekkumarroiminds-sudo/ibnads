@@ -6,12 +6,13 @@ import { Container } from "@/components/ui/Container";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { TableOfContents } from "@/components/layout/TableOfContents";
 import { VerdictBox } from "@/components/review/VerdictBox";
-import { SubScores } from "@/components/review/SubScores";
-import { ProsCons } from "@/components/review/ProsCons";
+import { ReviewSummary } from "@/components/review/ReviewSummary";
 import { SpecsTable } from "@/components/review/SpecsTable";
 import { ReviewCard } from "@/components/review/ReviewCard";
 import { MDXContent } from "@/components/content/MDXContent";
 import { AuthorByline } from "@/components/content/AuthorByline";
+import { AuthorBio } from "@/components/content/AuthorBio";
+import { VoteBar } from "@/components/content/VoteBar";
 import { ShareBar } from "@/components/content/ShareBar";
 import { Disclosure } from "@/components/content/Disclosure";
 import { AdSlot } from "@/components/content/AdSlot";
@@ -85,7 +86,21 @@ export default async function ReviewPage({
         <div className="lg:grid lg:grid-cols-[1fr_240px] lg:gap-10">
           {/* Article column — constrained for readability */}
           <article className="min-w-0">
-            <header className="mx-auto max-w-prose">
+            {/* Full-width hero image leads the article (reference layout). */}
+            {review.coverImage && (
+              <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-surface">
+                <Image
+                  src={review.coverImage.src}
+                  alt={review.title}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 760px"
+                  className="object-cover"
+                />
+              </div>
+            )}
+
+            <header className="mx-auto mt-6 max-w-prose">
               <Badge tone="brand">{review.category}</Badge>
               <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight text-fg sm:text-4xl">
                 {review.title}
@@ -104,32 +119,8 @@ export default async function ReviewPage({
               </div>
             </header>
 
-            {review.coverImage && (
-              <div className="relative mx-auto mt-6 aspect-[16/9] max-w-3xl overflow-hidden rounded-2xl bg-surface">
-                <Image
-                  src={review.coverImage.src}
-                  alt={review.title}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 768px"
-                  className="object-cover"
-                />
-              </div>
-            )}
-
             <div className="mx-auto mt-8 max-w-prose space-y-8">
               <VerdictBox review={review} />
-
-              {review.subScores && review.subScores.length > 0 && (
-                <section aria-labelledby="scores-h">
-                  <h2 id="scores-h" className="mb-3 text-xl font-bold text-fg">
-                    Scorecard
-                  </h2>
-                  <SubScores scores={review.subScores} />
-                </section>
-              )}
-
-              <ProsCons pros={review.pros} cons={review.cons} />
 
               {review.reviewType === "product" && review.specs && (
                 <section aria-labelledby="specs-h">
@@ -164,6 +155,13 @@ export default async function ReviewPage({
                   </div>
                 </section>
               )}
+
+              {/* Signature summary: GOOD/BAD + teal score panel + bar meters. */}
+              <ReviewSummary review={review} />
+
+              <AuthorBio author={author} />
+
+              <VoteBar slug={review.slugAsParams} />
             </div>
           </article>
 
@@ -177,7 +175,7 @@ export default async function ReviewPage({
 
         {related.length > 0 && (
           <section className="mt-16 border-t border-border pt-10">
-            <h2 className="mb-6 text-2xl font-bold tracking-tight text-fg">Related reviews</h2>
+            <h2 className="mb-6 text-2xl font-bold tracking-tight text-fg">You may also like</h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((r) => (
                 <ReviewCard key={r.slug} review={r} />

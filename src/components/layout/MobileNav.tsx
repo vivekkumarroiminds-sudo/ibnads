@@ -14,7 +14,7 @@ export function MobileNav() {
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-lg text-fg hover:bg-surface"
+        className="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-lg text-brand-fg hover:bg-white/15"
       >
         {open ? <CloseIcon /> : <MenuIcon />}
       </button>

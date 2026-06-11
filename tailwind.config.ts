@@ -25,8 +25,18 @@ const config: Config = {
           DEFAULT: "hsl(var(--brand) / <alpha-value>)",
           fg: "hsl(var(--brand-fg) / <alpha-value>)",
         },
+        accent: {
+          DEFAULT: "hsl(var(--accent) / <alpha-value>)",
+          fg: "hsl(var(--accent-fg) / <alpha-value>)",
+        },
         positive: "hsl(var(--positive) / <alpha-value>)",
         negative: "hsl(var(--negative) / <alpha-value>)",
+        // Always-dark footer surface (theme-independent).
+        footer: {
+          DEFAULT: "hsl(var(--footer-bg) / <alpha-value>)",
+          fg: "hsl(var(--footer-fg) / <alpha-value>)",
+          muted: "hsl(var(--footer-muted) / <alpha-value>)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
